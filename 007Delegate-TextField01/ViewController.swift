@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     @IBOutlet var tf: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // delegate 설정
+        self.tf.delegate = self
         
         // placeholder
         tf.placeholder = "값을 입력하시오."
@@ -136,3 +139,37 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: extension을 이용한 Delegate func 관리
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("텍스트 필드의 편집이 시작됩니다1.")
+        return true // false return할 경우 편집되지 않음.
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("텍스트 필드의 편집이 시작됩니다2.")
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("텍스트 필드의 내용이 \(string)으로 변경됩니다.")
+        return true // false return할 경우 내용이 변경되지 않음.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("텍스트 필드의 returnKey가 눌러졌습니다.")
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("텍스트 필드의 편집이 종료됩니다1.")
+        return true // false를 리턴하면 편집이 종료되지 않는다.
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("텍스트 필드의 편집이 종료됩니다2.")
+    }
+ 
+    
+    
+}
