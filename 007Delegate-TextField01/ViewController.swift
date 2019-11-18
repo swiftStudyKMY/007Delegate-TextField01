@@ -153,7 +153,13 @@ extension ViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         print("텍스트 필드의 내용이 \(string)으로 변경됩니다.")
-        return true // false return할 경우 내용이 변경되지 않음.
+        
+        if(Int(string) == nil){ // 입력된 값이 숫자가 아니면 true return
+            return true
+        } else{
+            return false
+        }
+//        return true // false return할 경우 내용이 변경되지 않음.
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
