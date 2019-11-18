@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         /*  type이 *로 표기 Password
             default is NO
          */
-        tf.isSecureTextEntry = true;
+        tf.isSecureTextEntry = false;
         /*
             default is NO which moves cursor to location clicked. if YES, all text cleared
          */
@@ -91,6 +91,38 @@ class ViewController: UIViewController {
          */
         tf.clearButtonMode = UITextField.ViewMode.always
         
+        /*
+         * 스타일 지정
+         */
+        
+        // default is UITextBorderStyleNone. If set to UITextBorderStyleRoundedRect, custom background images are ignored.
+        /*  UITextField.BorderStyle enum type
+             case none
+             case line
+             case bezel
+             case roundedRect
+         */
+        tf.borderStyle = UITextField.BorderStyle.roundedRect
+        
+        // 배경색상
+        tf.backgroundColor = UIColor(white: 0.88, alpha: 1.0)
+        
+        // 수직방향으로 텍스트 가운데 정렬
+        tf.contentVerticalAlignment = .center
+        
+        // 수평방향으로 텍스트 가운데 정렬
+        tf.contentHorizontalAlignment = .center
+        
+        // 테두리 색상 회색
+        tf.layer.borderColor = UIColor.darkGray.cgColor
+        
+        // 테두리 두께 설정 ( 단위:pt )
+        tf.layer.borderWidth = 2.0
+        
+        /* UIColor 코드 생성 사이트
+         * https://www.uicolor.xyz
+         */
+
     }
 
 
