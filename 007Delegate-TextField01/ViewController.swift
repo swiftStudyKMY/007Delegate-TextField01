@@ -122,9 +122,17 @@ class ViewController: UIViewController {
         /* UIColor 코드 생성 사이트
          * https://www.uicolor.xyz
          */
+        
 
     }
 
-
+    @IBAction func confirm(_ sender: Any) {
+        //코드를 이용한 텍스트 필드를 최초의 응답자로 지정
+        self.tf.becomeFirstResponder()
+    }
+    
+    @IBAction func input(_ sender: Any) {
+        self.tf.becomeFirstResponder()
+    }
 }
 
