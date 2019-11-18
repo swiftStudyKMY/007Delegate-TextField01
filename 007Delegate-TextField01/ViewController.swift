@@ -155,7 +155,12 @@ extension ViewController: UITextFieldDelegate {
         print("텍스트 필드의 내용이 \(string)으로 변경됩니다.")
         
         if(Int(string) == nil){ // 입력된 값이 숫자가 아니면 true return
-            return true
+            if((textField.text?.count)! + string.count > 10){ // 현재 텍스트 필드 입력 길이와 더해질 문자열의 길이가 합이 10을 넘을 경우 반영하지 않음.
+                return false
+            }
+            else{
+                return true
+            }
         } else{
             return false
         }
